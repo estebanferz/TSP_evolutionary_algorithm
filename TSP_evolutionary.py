@@ -158,8 +158,33 @@ class TSPGeneticAlgorithm:
 
 
     def local_search(self, individual):
-        # Placeholder: mejora por búsqueda local (adaptación baldwiniana)
-        return individual
+        """Aplica mejora 2-opt al individuo (adaptación baldwiniana)"""
+        best = individual[:]
+        improved = True
+
+        def route_cost(route):
+            cost = 0
+            for i in range(len(route)):
+                cost += self.distance_matrix[route[i]][route[(i + 1) % self.num_cities]]
+            return cost
+
+        best_cost = route_cost(best)
+
+        while improved:
+            improved = False
+            for i in range(1, self.num_cities - 1):
+                for j in range(i + 1, self.num_cities):
+                    if j - i == 1:
+                        continue  # ciudades adyacentes, no conviene invertir
+                    new_route = best[:]
+                    new_route[i:j] = reversed(best[i:j])
+                    new_cost = route_cost(new_route)
+                    if new_cost < best_cost:
+                        best = new_route
+                        best_cost = new_cost
+                        improved = True
+            # cuando no encuentra mejoras, termina
+        return best
 
     def run(self):
         # 1. Inicialización de población
