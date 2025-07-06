@@ -212,6 +212,9 @@ class TSPGeneticAlgorithm:
             print("   selección ok")
             history.append(best_fitness)
 
+            if generation > 20 and history[-1] == history[-20]:
+                print("Convergencia detectada. Deteniendo...")
+                break
 
             # Selección de padres
             parents = self.select_parents()
@@ -243,8 +246,11 @@ class TSPGeneticAlgorithm:
                     self.mutate(c2)
 
                 # Búsqueda local (Baldwiniana)
-                c1 = self.local_search(c1)
-                c2 = self.local_search(c2)
+                if random.random() < 0.3:
+                    c1 = self.local_search(c1)
+                if random.random() < 0.3:
+                    c2 = self.local_search(c2)
+
 
                 new_population.extend([c1, c2])
 
