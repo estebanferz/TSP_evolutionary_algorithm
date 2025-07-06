@@ -11,13 +11,14 @@ TOURNAMENT_SIZE = 3 #Used in tournament parent selection
 CROSSOVER_METHOD = "PMX"  # PMX, OX
 SELECTION_METHOD = "tournament"  # tournament, roulette
 MUTATION_METHOD = "swap"  # swap, inversion
+MUTATION_RATE = 0.1  # Probability of mutation
 
 
 ##FUNCIONES
 def initialize_matrix(filename) -> np.array:
     problem = tsplib95.load(filename)
     matriz_costos = np.array(problem.edge_weights)
-    
+
     return matriz_costos
 
 
