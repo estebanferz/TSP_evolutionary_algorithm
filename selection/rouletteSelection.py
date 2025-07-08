@@ -2,7 +2,7 @@ import numpy as np
 from selection.baseSelection import BaseSelection
 
 class RouletteSelection(BaseSelection):
-    def selection(self, population: np.ndarray, fitness: np.ndarray, parents: int) -> np.ndarray:
+    def select(self, population: np.ndarray, fitness: np.ndarray, parents: int) -> np.ndarray:
         
         # Initialize offspring array
         offspring = np.empty((parents, population.shape[1]), dtype=population.dtype)

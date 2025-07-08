@@ -1,5 +1,5 @@
 import numpy as np
-from baseCrossover import BaseCrossover
+from crossover.baseCrossover import BaseCrossover
 
 class OXCrossover(BaseCrossover):
     
@@ -32,7 +32,7 @@ class OXCrossover(BaseCrossover):
         child = -np.ones(size, dtype=parent1.dtype)
 
         #Select two random cut points, copy the segment from parent1 to child
-        p1, p2 = sorted(self.rng.choice(size, 2, replace=False))
+        p1, p2 = sorted(np.random.choice(size, 2, replace=False))
         child[p1:p2+1] = parent1[p1:p2+1]
 
         #Fill remaining positions from parent2 (in order, skipping duplicates)

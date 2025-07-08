@@ -1,5 +1,5 @@
 import numpy as np
-from baseCrossover import BaseCrossover
+from crossover.baseCrossover import BaseCrossover
 
 class PMXCrossover(BaseCrossover):
 
@@ -34,7 +34,7 @@ class PMXCrossover(BaseCrossover):
         child = -np.ones(size, dtype=parent1.dtype)
 
         #Randomly chooses 2 swaping points, then swap segments
-        p1, p2 = sorted(self.rng.choice(size, 2, replace=False))
+        p1, p2 = sorted(np.random.choice(size, 2, replace=False))
         child[p1:p2+1] = parent1[p1:p2+1]
 
         #Create a mapping between parent1 and parent2 for the swapped segment
