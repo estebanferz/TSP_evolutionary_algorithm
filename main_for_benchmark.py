@@ -113,7 +113,6 @@ def get_operator_desc(op):
     else:
         return name
 
-# --- Ejecucion principal ---
 if __name__ == '__main__':
     # --- Configuration ---
     TSP_FILE = "instances/p43.atsp" # Example file
