@@ -128,7 +128,6 @@ if __name__ == '__main__':
     CANTIDAD_DE_GENERACIONES = [100, 200]
     CANTIDAD_EJECUCIONES = 10
 
-    PARAMETRO_RANKING_LINEAL = [1.5, 2.0]
     PORCENTAJE_DE_REEMPLAZO_SS = [0.5, 0.7]
     PORCENTAJE_DE_REEMPLAZO = [0.1, 0.2, 0.3, 0.4, 0.5] # For ElitismSurvivorSelection
 

@@ -1,8 +1,0 @@
-Genetic Algorithm Benchmark Results
-TSP Problem: instances/p43.atsp
-Timestamp: 20250707_230503
-Total Configurations Tested: 0 (out of 2016)
-Executions per Configuration: 10
-Total Benchmark Time: 1.70 seconds
-============================================================
-
